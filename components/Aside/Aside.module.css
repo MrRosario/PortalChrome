@@ -1,0 +1,18 @@
+.contentOther__aside {
+    width: 292px;
+    max-width: 292px;
+}
+.contentBoxWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+@media  (max-width: 767px) {
+    .contentOther__aside {
+        width: 100%;
+        max-width: unset;
+        margin-top: 70px;
+    }
+}

@@ -1,0 +1,22 @@
+.postSeparator {
+    width: 100%;
+}
+.postSeparator h3 {
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0.008em;
+    color: #000000;
+    margin-bottom: 5px;
+}
+.postSeparator__line {
+    height: 4px;
+    width: 100%;
+    background-color: #bfbaba;
+    border-radius: 5px;
+}
+.postSeparator__smallLine {
+    height: 100%;
+    width: 38px;
+    background-color: #EE2233;
+    border-radius: 5px;
+}

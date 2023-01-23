@@ -1,0 +1,81 @@
+.contentHighlighted {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contentBigCardsWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.contentSmallCardsWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.contentOther {
+  max-width: 970px;
+  margin: 60px auto 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.contentOther__main {
+  width: 643px;
+  max-width: 643px;
+}
+
+.contentBoxWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+.buttonLoadMoreWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.buttonLoadMore {
+  width: 340px;
+  text-align: center;
+  padding: 10.5px 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(0,0,0);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+}
+.buttonLoadMore:hover {
+  color: #EE2233;
+  border-color: #EE2233;
+}
+@media  (max-width: 767px) {
+  .contentBigCardsWrapper {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .contentBigCardsWrapper a {
+    width: 100%;
+    height: 300px;
+  }
+  .contentSmallCardsWrapper {
+    gap: 10px;
+  }
+  .contentOther__main {
+    width: 100%;
+  }
+  .contentBoxWrapper {
+    gap: 30px;
+  }
+  .buttonLoadMore {
+    width: 80%;
+    padding: 8px 0px;
+  }
+  .contentOther {
+    flex-direction: column;
+  }
+}

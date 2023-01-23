@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "posts",
+  "info": {
+    "singularName": "post",
+    "pluralName": "posts",
+    "displayName": "Post",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "content": {
+      "type": "richtext",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {}
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Chromebooks",
+        "ChromeOS",
+        "Gaming",
+        "GoogleChrome",
+        "Programming",
+        "Others"
+      ],
+      "required": true,
+      "pluginOptions": {}
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "authorID": {
+      "type": "string",
+      "default": "1",
+      "required": true
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "highlighted": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.heading_content {
+    margin-bottom: 60px;
+}
+.heading_content h1 {
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0.008em;
+    color: #000000;
+}
+.heading_content p {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.008em;
+    color: #000000;
+}
