@@ -122,18 +122,25 @@ export async function getServerSideProps(context) {
 
   const slug = context.params.slug;
 
-  const post = await fetch(`${BASE_URL}/api/posts/${slug}?populate=*`)
-  const parsedPost = await post.json()
+  try {
+    const post = await fetch(`${BASE_URL}/api/posts/${slug}?populate=*`)
+    const parsedPost = await post.json()
 
-  const author = await fetch(`${BASE_URL}/api/authors/${parsedPost?.data?.attributes?.authorID}`)
-  const parsedAuthor = await author.json()
-  const { name } = parsedAuthor?.data?.attributes;  
-  
-  return { 
-    props: { 
-      blogPost: parsedPost, 
-      author: name, 
-      BASE_URL
-    } 
+    const author = await fetch(`${BASE_URL}/api/authors/${parsedPost?.data?.attributes?.authorID}`)
+    const parsedAuthor = await author.json()
+    const { name } = parsedAuthor?.data?.attributes;  
+
+    return { 
+      props: { 
+        blogPost: parsedPost, 
+        author: name, 
+        BASE_URL
+      } 
+    }
   }
+  catch(err) {
+    return { notFound: true };
+  }
+
+  
 }

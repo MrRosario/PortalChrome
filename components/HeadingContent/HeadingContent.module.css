@@ -17,3 +17,19 @@
     letter-spacing: 0.008em;
     color: #000000;
 }
+.child__content p {
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+.child__content p a {
+    color: #EE2233;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.child__content h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.child__content p a:hover {
+    text-decoration: underline;
+}
