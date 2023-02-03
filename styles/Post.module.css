@@ -19,7 +19,7 @@
 }
 .post__description {
     font-weight: 400;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 28px;
     letter-spacing: 0.008em;
     color: #000000;
@@ -112,6 +112,7 @@
     max-height: 470px;
     max-width: 100%;
     margin: 20px 0;
+    border-radius: 5px;
 }
 .post__contentWrapper {
     display: flex;
