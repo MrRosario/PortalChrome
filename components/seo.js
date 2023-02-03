@@ -58,9 +58,9 @@ export default function Seo({
         property="twitter:description"
         content={description}
       />
+      <meta name="twitter:image" content={ogImage} />
 
       <link rel="canonical" href={canonical ?? SITE_DOMAIN} />
-
       <link rel="shortcut icon" href="/favicon.png" />
     </Head>
   );
