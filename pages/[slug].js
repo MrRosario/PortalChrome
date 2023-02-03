@@ -63,6 +63,7 @@ export default function Post({ blogPost, author, BASE_URL }) {
       <Seo
         title={`${title} | ${SITE_NAME}`}
         description={description || title}
+        ogImage={bannerUrl}
       />
       <article className={styles.post}>
         <header className={styles.post__heading}>
