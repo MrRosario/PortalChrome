@@ -30,7 +30,7 @@ const categories = [
 ];
 
 export const SITE_NAME = "Portal Chrome";
-export const SITE_DOMAIN = "https://www.portalchrome.com.br";
+export const SITE_DOMAIN = "https://portalchrome.com.br";
 export const DEFAULT_OG_IMAGE =
   "https://res.cloudinary.com/dmi1iu1wi/image/upload/v1675439149/ogImage_gyrg36.png";
 
