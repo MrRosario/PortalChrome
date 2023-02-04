@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import MarkdownIt from "markdown-it";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -22,6 +22,7 @@ const Banner = dynamic(() => import("../components/Banner"), {
 });
 
 export default function Post({ blogPost, author, BASE_URL }) {
+  const [isShareIconShown, setIsShareIconShown] = useState(false);
   const attributes = blogPost?.data?.attributes;
   const {
     category,
@@ -56,8 +57,10 @@ export default function Post({ blogPost, author, BASE_URL }) {
   };
   useEffect(() => {
     InsertTargetBlank();
+    setIsShareIconShown(navigator.share === undefined);
   }, []);
 
+  console.log("isShareIconShown: ", isShareIconShown);
   return (
     <>
       <Seo
@@ -113,14 +116,16 @@ export default function Post({ blogPost, author, BASE_URL }) {
               >
                 <TwitterIcon />
               </a>
-              <a
-                target="_blank"
-                rel="noopener"
-                onClick={webShare}
-                className={styles.social__icon}
-              >
-                <ShareIcon />
-              </a>
+              {isShareIconShown && (
+                <a
+                  target="_blank"
+                  rel="noopener"
+                  onClick={webShare}
+                  className={styles.social__icon}
+                >
+                  <ShareIcon />
+                </a>
+              )}
             </div>
           </div>
         </header>
