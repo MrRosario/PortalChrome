@@ -8,6 +8,7 @@ import {
   CurrentCategory,
   SITE_NAME,
   SITE_DOMAIN,
+  DeviceCheck,
 } from "../resources/utils";
 import Aside from "../components/Aside";
 import Seo from "../components/Seo";
@@ -22,7 +23,6 @@ const Banner = dynamic(() => import("../components/Banner"), {
 });
 
 export default function Post({ blogPost, author, BASE_URL }) {
-  const [isShareIconShown, setIsShareIconShown] = useState(false);
   const attributes = blogPost?.data?.attributes;
   const {
     category,
@@ -38,6 +38,7 @@ export default function Post({ blogPost, author, BASE_URL }) {
   const { url, height } = formats?.medium;
   const bannerUrl = url;
 
+  const device = DeviceCheck();
   const md = new MarkdownIt();
   const htmlContentResult = md.render(content);
   const categoryData = CurrentCategory(category);
@@ -55,12 +56,20 @@ export default function Post({ blogPost, author, BASE_URL }) {
       console.warn(err);
     }
   };
+  const shareFacebook = () => {
+    window.open(
+      "fb://faceweb/f?href=" +
+        encodeURIComponent(
+          "https://m.facebook.com/sharer.php?u=" +
+            encodeURIComponent(currentUrl)
+        )
+    );
+  };
+
   useEffect(() => {
     InsertTargetBlank();
-    setIsShareIconShown(navigator.share === undefined);
   }, []);
 
-  console.log("isShareIconShown: ", isShareIconShown);
   return (
     <>
       <Seo
@@ -104,8 +113,9 @@ export default function Post({ blogPost, author, BASE_URL }) {
               <a
                 target="_blank"
                 rel="noopener"
-                href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&src=sdkpreparse&quote=${title}`}
                 className={styles.social__icon}
+                onClick={shareFacebook}
               >
                 <FacebookIcon />
               </a>
@@ -116,10 +126,11 @@ export default function Post({ blogPost, author, BASE_URL }) {
               >
                 <TwitterIcon />
               </a>
-              {isShareIconShown && (
+              {!device.isDesktop && (
                 <a
                   target="_blank"
                   rel="noopener"
+                  href="#"
                   onClick={webShare}
                   className={styles.social__icon}
                 >
