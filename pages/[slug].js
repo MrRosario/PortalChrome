@@ -56,15 +56,6 @@ export default function Post({ blogPost, author, BASE_URL }) {
       console.warn(err);
     }
   };
-  const shareFacebook = () => {
-    window.open(
-      "fb://faceweb/f?href=" +
-        encodeURIComponent(
-          "https://m.facebook.com/sharer.php?u=" +
-            encodeURIComponent(currentUrl)
-        )
-    );
-  };
 
   useEffect(() => {
     InsertTargetBlank();
@@ -102,6 +93,17 @@ export default function Post({ blogPost, author, BASE_URL }) {
               )}
             </div>
             <div className={styles.social}>
+              {!device.isDesktop && (
+                <a
+                  target="_blank"
+                  rel="noopener"
+                  href="#"
+                  onClick={webShare}
+                  className={styles.social__icon}
+                >
+                  <ShareIcon />
+                </a>
+              )}
               <a
                 href={`https://api.whatsapp.com/send?text=${currentUrl}`}
                 rel="noopener"
@@ -115,7 +117,6 @@ export default function Post({ blogPost, author, BASE_URL }) {
                 rel="noopener"
                 href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&src=sdkpreparse&quote=${title}`}
                 className={styles.social__icon}
-                onClick={shareFacebook}
               >
                 <FacebookIcon />
               </a>
@@ -126,17 +127,6 @@ export default function Post({ blogPost, author, BASE_URL }) {
               >
                 <TwitterIcon />
               </a>
-              {!device.isDesktop && (
-                <a
-                  target="_blank"
-                  rel="noopener"
-                  href="#"
-                  onClick={webShare}
-                  className={styles.social__icon}
-                >
-                  <ShareIcon />
-                </a>
-              )}
             </div>
           </div>
         </header>

@@ -13,7 +13,7 @@ export default function Seo({
     <Head>
       <title key="title">{title}</title>
       <meta name="description" content={description} />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta key="og_type" property="og:type" content={ogType} />
       <meta key="og_title" property="og:title" content={title} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,11 +26,7 @@ export default function Seo({
       <meta key="og_site_name" property="og:site_name" content={SITE_NAME} />
       <meta key="og_url" property="og:url" content={canonical ?? SITE_DOMAIN} />
       <meta key="og_site_name" property="og:site_name" content={SITE_NAME} />
-      <meta
-        key="og_image"
-        property="og:image"
-        content={ogImage ?? DEFAULT_OG_IMAGE}
-      />
+      <meta key="og_image" property="og:image" content={ogImage} />
       <meta
         key="og_image:alt"
         property="og:image:alt"
