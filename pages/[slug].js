@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import MarkdownIt from "markdown-it";
 import dynamic from "next/dynamic";
 import Link from "next/link";
