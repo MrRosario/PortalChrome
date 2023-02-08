@@ -42,7 +42,7 @@ export const DateFormate = (unFormatedDate) => {
   return formated;
 };
 
-export const InsertTargetBlank = () => {
+export const InsertAttrToAnchorTag = () => {
   const links = document.querySelectorAll("#post__content a");
 
   links.forEach((link) => {
@@ -51,6 +51,7 @@ export const InsertTargetBlank = () => {
       return;
     }
     link.target = "_blank";
+    link.rel = "noopener noreferrer";
   });
 };
 

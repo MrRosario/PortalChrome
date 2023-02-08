@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import {
   DateFormate,
-  InsertTargetBlank,
+  InsertAttrToAnchorTag,
   CurrentCategory,
   SITE_NAME,
   SITE_DOMAIN,
@@ -40,6 +40,20 @@ export default function Post({ blogPost, author, BASE_URL }) {
 
   const device = DeviceCheck();
   const md = new MarkdownIt();
+
+  md.renderer.rules.image = function (tokens, idx, options, env, slf) {
+    const token = tokens[idx];
+    token.attrs[token.attrIndex("alt")][1] = slf.renderInlineAsText(
+      token.children,
+      options,
+      env
+    );
+
+    token.attrSet("loading", "lazy");
+
+    return slf.renderToken(tokens, idx, options);
+  };
+
   const htmlContentResult = md.render(content);
   const categoryData = CurrentCategory(category);
   const currentUrl = `${SITE_DOMAIN}/${slug}`;
@@ -58,7 +72,7 @@ export default function Post({ blogPost, author, BASE_URL }) {
   };
 
   useEffect(() => {
-    InsertTargetBlank();
+    InsertAttrToAnchorTag();
   }, []);
 
   return (
@@ -94,19 +108,13 @@ export default function Post({ blogPost, author, BASE_URL }) {
             </div>
             <div className={styles.social}>
               {!device.isDesktop && (
-                <a
-                  target="_blank"
-                  rel="noopener"
-                  href="#"
-                  onClick={webShare}
-                  className={styles.social__icon}
-                >
+                <button onClick={webShare} className={styles.social__icon}>
                   <ShareIcon />
-                </a>
+                </button>
               )}
               <a
                 href={`https://api.whatsapp.com/send?text=${currentUrl}`}
-                rel="noopener"
+                rel="noopener noreferrer"
                 target="_blank"
                 className={styles.social__icon}
               >
@@ -114,7 +122,7 @@ export default function Post({ blogPost, author, BASE_URL }) {
               </a>
               <a
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&src=sdkpreparse&quote=${title}`}
                 className={styles.social__icon}
               >
@@ -122,7 +130,7 @@ export default function Post({ blogPost, author, BASE_URL }) {
               </a>
               <a
                 href={`https://twitter.com/intent/tweet?text=Veja este artigo: ${title} - ${currentUrl}`}
-                rel="noopener"
+                rel="noopener noreferrer"
                 className={styles.social__icon}
               >
                 <TwitterIcon />

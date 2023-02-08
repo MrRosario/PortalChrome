@@ -75,12 +75,13 @@
     font-size: 16px;
     margin: 10px 0 20px;
     position: relative;
+    white-space: break-spaces;  
 }
 .post__content pre::before {
     content: "";
     height: 100%;
     width: 6px;
-    background-color: #EE2233;
+    background-color: #259645;
     display: block;
     position: absolute;
     left: 0;
