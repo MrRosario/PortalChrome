@@ -121,19 +121,19 @@ export default function Post({ blogPost, author, BASE_URL }) {
                 <WhatsappIcon />
               </a>
               <a
+                href={`https://twitter.com/intent/tweet?text=Veja este artigo: ${title} - ${currentUrl}`}
+                rel="noopener noreferrer"
+                className={styles.social__icon}
+              >
+                <TwitterIcon />
+              </a>
+              <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&src=sdkpreparse&quote=${title}`}
                 className={styles.social__icon}
               >
                 <FacebookIcon />
-              </a>
-              <a
-                href={`https://twitter.com/intent/tweet?text=Veja este artigo: ${title} - ${currentUrl}`}
-                rel="noopener noreferrer"
-                className={styles.social__icon}
-              >
-                <TwitterIcon />
               </a>
             </div>
           </div>
