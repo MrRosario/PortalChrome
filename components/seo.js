@@ -18,6 +18,10 @@ export default function Seo({
       <meta key="og_title" property="og:title" content={title} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta
+        name="google-site-verification"
+        content="ykd4eaDLQfFrMw8F_jjlm8xCD2OH6LDZMoyoiaHJ_2E"
+      />
+      <meta
         key="og_description"
         property="og:description"
         content={description}
@@ -58,6 +62,15 @@ export default function Seo({
 
       <link rel="canonical" href={canonical ?? SITE_DOMAIN} />
       <link rel="shortcut icon" href="/favicon.png" />
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=AW-10846114910"
+      ></script>
+      <script>
+        window.dataLayer = window.dataLayer || []; function gtag()
+        {dataLayer.push(arguments)}
+        gtag('js', new Date()); gtag('config', 'AW-10846114910');
+      </script>
     </Head>
   );
 }
