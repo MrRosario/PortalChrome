@@ -66,6 +66,11 @@ export default function Seo({
         async
         src="https://www.googletagmanager.com/gtag/js?id=AW-10846114910"
       ></script>
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1631589287644567"
+        crossorigin="anonymous"
+      ></script>
     </Head>
   );
 }
