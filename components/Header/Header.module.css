@@ -35,11 +35,6 @@
 .navWrapper a {
     margin-right: 20px;
 }
-.menu {
-    background: #fff;
-    height: 100%;
-    width: 70%;
-}
 .menuLayer {
     width: 100%;
     background: rgba(0,0,0,.8);
@@ -48,6 +43,26 @@
     top: 0;
     display: flex;
     justify-content: flex-end;
+}
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+    100% {
+        opacity: 1;
+        width: 70%;
+    }
+}
+.menuLayerHidden {
+    display: none;
+}
+.menu {
+    background: #fff;
+    height: 100%;
+    width: 70%;
+    animation-name: fadeInDown;
+    animation-duration: 0.5s;
 }
 .menuLink__wrapper {
     margin-top: 50px;

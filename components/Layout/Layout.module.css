@@ -2,7 +2,7 @@
   max-width: 970px;
   height: 100%;
   z-index: 1;
-  margin: 100px auto 20px;
+  margin: 70px auto 20px;
 }
 @media  (max-width: 767px) {
   .content {

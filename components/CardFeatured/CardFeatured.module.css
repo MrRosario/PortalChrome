@@ -23,7 +23,7 @@
     bottom: 0;
     height: 30%;
     width: 100%;
-    padding: 15px 20px;
+    padding: 20px 15px 10px;
     background-color: rgba(0,0,0,.7);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -46,17 +46,16 @@
 
 @media  (max-width: 767px) {
     .card__title h2 {
-        font-size: 14px;
+        font-size: 16px !important;
     }
     .smallCard {
-        width: 33.3%;
+        width: 100%;
     }
     .smallCard .card__title {
-        height: 60%;
-        padding: 5px;
+        height: 30%;
+        padding: 20px 15px 10px;
     }
     .smallCard .card__title h2 {
-        font-size: 15px;
         line-height: 16px;
         font-weight: 400;
     }

@@ -64,6 +64,8 @@
   }
   .contentSmallCardsWrapper {
     gap: 10px;
+    flex-direction: column;
+    
   }
   .contentOther__main {
     width: 100%;

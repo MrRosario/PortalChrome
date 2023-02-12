@@ -46,13 +46,12 @@ const Header = () => {
           })}
         </div>
       </nav>
-      {isModalOpen && (
-        <Menu
-          routes={routes}
-          currentRoute={currentRoute}
-          setIsModalOpen={setIsModalOpen}
-        />
-      )}
+      <Menu
+        routes={routes}
+        currentRoute={currentRoute}
+        setIsModalOpen={setIsModalOpen}
+        isModalOpen={isModalOpen}
+      />
     </header>
   );
 };
@@ -114,10 +113,10 @@ const HamburguerMenuIcon = ({ setIsModalOpen }) => (
   </div>
 );
 
-const Menu = ({ routes, currentRoute, setIsModalOpen }) => (
+const Menu = ({ routes, currentRoute, setIsModalOpen, isModalOpen }) => (
   <section
     id="menu"
-    className={styles.menuLayer}
+    className={isModalOpen ? `${styles.menuLayer}` : styles.menuLayerHidden}
     onClick={(evt) => {
       if (evt.target.id === "menu") {
         setIsModalOpen(false);
