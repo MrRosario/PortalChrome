@@ -123,6 +123,7 @@ export default function Post({ blogPost, author, BASE_URL }) {
               <a
                 href={`https://twitter.com/intent/tweet?text=Veja este artigo: ${title} - ${currentUrl}`}
                 rel="noopener noreferrer"
+                target="_blank"
                 className={styles.social__icon}
               >
                 <TwitterIcon />
