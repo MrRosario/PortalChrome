@@ -3,6 +3,7 @@
     margin-bottom: 40px;
     border-radius: 5px;
     object-fit: cover;
+    max-height: 350px;
 }
 @media  (max-width: 767px) {
     .post__banner img {
