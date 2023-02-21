@@ -57,13 +57,14 @@ export default function Post({ blogPost, author, BASE_URL }) {
   const htmlContentResult = md.render(content);
   const categoryData = CurrentCategory(category);
   const currentUrl = `${SITE_DOMAIN}/${slug}`;
+  const messageIntroLink = `Veja este artigo: ${title}`;
 
   const webShare = async (e) => {
     e.preventDefault();
     try {
       await navigator.share({
         title: title,
-        text: description,
+        text: !description ? messageIntroLink : description,
         url: currentUrl,
       });
     } catch (err) {
@@ -121,7 +122,7 @@ export default function Post({ blogPost, author, BASE_URL }) {
                 <WhatsappIcon />
               </a>
               <a
-                href={`https://twitter.com/intent/tweet?text=Veja este artigo: ${title} - ${currentUrl}`}
+                href={`https://twitter.com/intent/tweet?text=${messageIntroLink} - ${currentUrl}`}
                 rel="noopener noreferrer"
                 target="_blank"
                 className={styles.social__icon}
