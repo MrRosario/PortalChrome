@@ -35,7 +35,7 @@ export default function Post({ blogPost, author, BASE_URL }) {
     slug,
   } = attributes;
   const { formats } = banner?.data?.attributes;
-  const { url, height } = formats?.medium;
+  const { url } = formats?.medium;
   const bannerUrl = url;
 
   const device = DeviceCheck();
@@ -139,13 +139,7 @@ export default function Post({ blogPost, author, BASE_URL }) {
             </div>
           </div>
         </header>
-        {banner && (
-          <Banner
-            bannerUrl={bannerUrl}
-            alternativeText={slug}
-            height={height}
-          />
-        )}
+        {banner && <Banner bannerUrl={bannerUrl} alternativeText={slug} />}
         <div className={styles.post__contentWrapper}>
           <section
             id="post__content"
