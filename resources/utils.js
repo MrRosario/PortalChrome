@@ -46,10 +46,6 @@ export const InsertAttrToAnchorTag = () => {
   const links = document.querySelectorAll("#post__content a");
 
   links.forEach((link) => {
-    if (link.href.includes("localhost") || link.href.includes("portalchrome")) {
-      link.target = "_self";
-      return;
-    }
     link.target = "_blank";
     link.rel = "noopener noreferrer";
   });
