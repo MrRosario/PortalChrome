@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Header.module.css";
@@ -7,32 +7,54 @@ const Header = () => {
   const router = useRouter();
   const currentRoute = router.pathname;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const postsExist = posts?.attributes?.links?.length > 0;
+  const fetchPosts = async () => {
+    try {
+      const res = await fetch(
+        `https://portalchrome.herokuapp.com/api/header?populate=*`
+      );
+      const parsedPosts = await res.json();
+      const { data } = parsedPosts;
 
-  const routes = [
-    { name: "Home", path: "/" },
-    { name: "Chromebooks", path: "/chromebooks" },
-    { name: "Google Chrome", path: "/chrome-browser" },
-    { name: "Jogos", path: "/gaming" },
-    { name: "ChromeOS", path: "/chrome-os" },
-    { name: "Programação", path: "/programming" },
-  ];
+      setPosts(data);
+    } catch (error) {
+      console.warn("There was an error", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  if (!postsExist) return;
+
+  const { links, logo } = posts?.attributes;
+
+  console.log("postsExist: ", postsExist);
+  console.log("posts: ", posts);
 
   return (
     <header className={styles.header}>
       <nav className={styles.header__nav}>
         <HamburguerMenuIcon setIsModalOpen={setIsModalOpen} />
         <Link className={styles.nav__link} href="/">
-          <Logo />
+          {/* <Logo /> */}
+          <img
+            src={logo?.data?.attributes?.url}
+            alt={logo?.data?.attributes?.alternativeText}
+            loading="lazy"
+          />
         </Link>
         <div className={styles.navWrapper}>
-          {routes.map((item) => {
-            const routePath = item.path;
+          {links.map((item) => {
+            const routePath = item.url;
 
             if (routePath === "/") return;
 
             return (
               <Link
-                key={item.name}
+                key={item.id}
                 className={
                   currentRoute === routePath
                     ? `${styles.nav__link} nav__link-active`
@@ -40,14 +62,14 @@ const Header = () => {
                 }
                 href={routePath}
               >
-                {item.name}
+                {item.label}
               </Link>
             );
           })}
         </div>
       </nav>
       <Menu
-        routes={routes}
+        routes={links}
         currentRoute={currentRoute}
         setIsModalOpen={setIsModalOpen}
         isModalOpen={isModalOpen}
@@ -126,10 +148,10 @@ const Menu = ({ routes, currentRoute, setIsModalOpen, isModalOpen }) => (
     <div className={styles.menu}>
       <div className={styles.menuLink__wrapper}>
         {routes.map((item) => {
-          const routePath = item.path;
+          const routePath = item.url;
           return (
             <Link
-              key={item.name}
+              key={item.id}
               onClick={() => setIsModalOpen(false)}
               className={
                 currentRoute === routePath
@@ -138,7 +160,7 @@ const Menu = ({ routes, currentRoute, setIsModalOpen, isModalOpen }) => (
               }
               href={routePath}
             >
-              {item.name}
+              {item.label}
             </Link>
           );
         })}
