@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { RandomSelectCategory } from "../../resources/utils";
 import CardPost from "../CardPost";
 import PostSeparator from "../PostSeparator";
 import styles from "./Aside.module.css";
 
 const Aside = ({ BASE_URL }) => {
   const [posts, setPosts] = useState([]);
-  const category = RandomSelectCategory();
 
   const fetchPosts = async () => {
     try {

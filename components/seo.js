@@ -62,7 +62,7 @@ export default function Seo({
 
       <link rel="canonical" href={canonical ?? SITE_DOMAIN} />
       <link rel="shortcut icon" href="/favicon.png" />
-      <script
+      {/* <script
         async
         src="https://www.googletagmanager.com/gtag/js?id=AW-10846114910"
       ></script>
@@ -70,7 +70,7 @@ export default function Seo({
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1631589287644567"
         crossorigin="anonymous"
-      ></script>
+      ></script> */}
     </Head>
   );
 }
