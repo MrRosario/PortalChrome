@@ -26,6 +26,15 @@ const Aside = ({ BASE_URL }) => {
 
   return (
     <aside className={styles.contentOther__aside}>
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-1631589287644567"
+        data-ad-slot="2544103369"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       <PostSeparator title="Outras publicações" />
       <div className={styles.contentBoxWrapper}>
         {posts?.map((item) => {
