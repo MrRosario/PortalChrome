@@ -2,6 +2,7 @@ import Layout from "../components/Layout";
 import { Ubuntu } from "@next/font/google";
 import Seo from "../components/Seo";
 import NextNProgress from "nextjs-progressbar";
+import Script from "next/script";
 import "../styles/globals.css";
 
 const ubuntu = Ubuntu({
@@ -14,6 +15,27 @@ export default function App({ Component, pageProps, canonical }) {
     <div className={ubuntu.className}>
       <Layout>
         <Seo />
+        {/* Google Analytics */}
+        <Script
+          strategy={"afterInteractive"}
+          src={`https://www.googletagmanager.com/gtag/js?id=G-GFDZ1W5MNK`}
+        />
+        <Script
+          id={"google-analytics"}
+          strategy={"afterInteractive"}
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-GFDZ1W5MNK');
+          `,
+          }}
+        />
+
+        {/* Google Adsense */}
+        <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1631589287644567" />
         <NextNProgress
           color="#EE2233"
           options={{
