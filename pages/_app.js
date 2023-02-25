@@ -15,6 +15,9 @@ export default function App({ Component, pageProps, canonical }) {
     <div className={ubuntu.className}>
       <Layout>
         <Seo />
+        {/* Google Adsense */}
+        <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1631589287644567" />
+
         {/* Google Analytics */}
         <Script
           strategy={"afterInteractive"}
@@ -33,9 +36,6 @@ export default function App({ Component, pageProps, canonical }) {
           `,
           }}
         />
-
-        {/* Google Adsense */}
-        <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1631589287644567" />
         <NextNProgress
           color="#EE2233"
           options={{

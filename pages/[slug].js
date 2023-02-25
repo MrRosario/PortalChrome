@@ -150,14 +150,6 @@ export default function Post({ blogPost, author, BASE_URL }) {
 
           <Aside BASE_URL={BASE_URL} />
         </div>
-        <ins
-          className="adsbygoogle"
-          style={{ display: "block" }}
-          data-ad-format="autorelaxed"
-          data-ad-client="ca-pub-1631589287644567"
-          data-ad-slot="8199738813"
-        ></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </article>
     </>
   );
