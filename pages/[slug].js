@@ -86,7 +86,8 @@ export default function Post({ blogPost, author, BASE_URL }) {
       <article className={styles.post}>
         <header className={styles.post__heading}>
           <div className={styles.post__category}>
-            <Link href={categoryData.url}>{categoryData.name}</Link>
+            {/* <Link href={categoryData.url}>{categoryData.name}</Link> */}
+            <span>{categoryData.name}</span>
           </div>
           <h1 className={styles.post__title}>{title}</h1>
           <h3 className={styles.post__description}>{description}</h3>
