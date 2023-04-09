@@ -31,9 +31,6 @@ const Header = () => {
 
   const { links, logo } = posts?.attributes;
 
-  console.log("postsExist: ", postsExist);
-  console.log("posts: ", posts);
-
   return (
     <header className={styles.header}>
       <nav className={styles.header__nav}>
