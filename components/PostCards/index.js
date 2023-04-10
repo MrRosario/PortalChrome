@@ -15,8 +15,8 @@ export default function PostCards({ highlightedPosts, BASE_URL }) {
   const PAGE_ENTRIES = 6;
 
   const fetchRecentPosts = async () => {
+    setLoading(true);
     try {
-      setLoading(true);
       const res = await fetch(
         `${BASE_URL}/api/posts?sort=createdAt%3Adesc&pagination[page]=${pageNumber}&pagination[pageSize]=${PAGE_ENTRIES}&populate=*`
       );
@@ -97,7 +97,7 @@ export default function PostCards({ highlightedPosts, BASE_URL }) {
 
       {isLoading && <p className="loadingMsg"> Carregando... </p>}
       {errorMsg && <p className="errorMsg">{errorMsg}</p>}
-      {!errorMsg && !isLoading && (
+      {!errorMsg && (
         <section className={styles.contentOther}>
           <div className={styles.contentOther__main}>
             <PostSeparator title="Últimas publicações" />
