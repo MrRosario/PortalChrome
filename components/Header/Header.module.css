@@ -23,6 +23,12 @@
     line-height: 25px;
     letter-spacing: 0.008em;
     color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav__link img {
+    height: 50px;
 }
 .nav__link:hover {
     color: #EE2233;
